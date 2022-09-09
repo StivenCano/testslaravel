@@ -14,7 +14,7 @@ class UserTest extends TestCase
      */
     public function test_login_form(){
         $response = $this->get('/login');
-        
+
         $response->assertStatus(200);
     }
 
@@ -26,9 +26,41 @@ class UserTest extends TestCase
 
         $user2 = User::make([
             'name' => 'Mauricio Cardona',
-            'email' => 'lmangel36@misena.edu.co'
+            'email' => 'lmangel37@misena.edu.co'
         ]);
 
-        $this->assertTrue($user1->name != $user2->name);
+        $this->assertTrue($user1->email != $user2->email && $user1->name != $user2->name );
+    }
+
+    public function test_delete_user(){
+        $user = User::factory()->count(1)->make();
+
+        $user = User::first();
+
+        if($user){
+            $user->delete();
+        }
+
+        $this->assertTrue(true);
+
+    }
+
+    public function test_guarda_nuevo_user(){
+        $respuesta = $this->post('/register', [
+            'name' => 'Stiven',
+            'email' => 'saguirre785@misena.edu.co',
+            'password' => 'stiven123',
+            'password_confirmation' => 'stiven123'
+        ]);
+        return $respuesta->assertRedirect('/home');
+    }
+
+    public function test_loguea_usuario(){
+        $respuesta = $this->post('/login', [
+            'email' => 'saguirre785misena.edu.co',
+            'password' => 'stiven123'
+
+        ]);
+        return $respuesta->assertRedirect('/home');
     }
 }
