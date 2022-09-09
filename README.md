@@ -13,7 +13,7 @@ Verificar si tenemos instalados lo siguiente programas:
 4. Codificamos el siguiente comando:
 ./vendor/bin/phpUnit
 Y aparecerá lo siguiente:
-
+![](https://github.com/StivenCano/testslaravel/blob/master/public/test.png?raw=true)
 O también, se puede utilizar el siguiente comando:
 php artisan test
 Y se generará esto:
@@ -23,16 +23,33 @@ Y se generará esto:
 php artisan make:test UserTest.
 
 2. Nos dirigimos a la carpeta de tests, entramos a la carpeta de Features, y vericamos si sí se creo correctamente el nuevo test.
+![](https://github.com/StivenCano/testslaravel/blob/master/public/features.png?raw=true)
+
 3. Ejecutamos el test con el comando php artisan test
 4. En la primera variable llamada $response, cambiamos el url por /test , el cual no se ha definido, por lo que saldrá un mensaje de error al poner otra vez el comando php artisan test.
+![](https://github.com/StivenCano/testslaravel/blob/master/public/gettest.png?raw=true)
 
+![](https://github.com/StivenCano/testslaravel/blob/master/public/fail.png?raw=true)
 ## Creando pruebas unitarias
 1. Para crear una prueba unitaria, se utiliza el comando php artisan make:test UserTest --unit.
+
 2. Verificamos, dentro de la carpeta Unit, que el nuevo test, UserTest, se haya creado dentro de esa carpeta, pero aún así, si ejecutamos el test, seguimos con el error.
+![](https://github.com/StivenCano/testslaravel/blob/master/public/unitests.png?raw=true)
+
 3. Nos dirigimos a la carpeta Features, y al archivo UserTest.php, y borramos el url /test, y volvemos a ejecutar el test, y ya no saldrá con el error.
 4. Procedemos a crear otras pruebas no tan sencillas, utilizando el comando composer require laravel/ui, luego utilizamos otro comando, el cual es php artisan ui react --auth, y ejecutamos el comando npm install && npm run dev.
+![](https://github.com/StivenCano/testslaravel/blob/master/public/composer.png?raw=true)
+
+![](https://github.com/StivenCano/testslaravel/blob/master/public/auth.png?raw=true)
+
+![](https://github.com/StivenCano/testslaravel/blob/master/public/npm.png?raw=true)
+Y debería aparecer lo siguiente:
+![](https://github.com/StivenCano/testslaravel/blob/master/public/ola.png?raw=true)
+
 5. Después, procedemos a crear una base de datos, en la terminal, colocamos el comando mysql, y después, escribimos el comando para crear la base de datos, el cual es create database laravel_testin (lo puedes llamar como quieras), y para salir del mysql, colocamos exit en la terminal.
 6. Nos dirigimos al archivo llamado .env, y verificamos que el nombre de la base de datos esté escrito en la sección de DB_DATABASE.
+![](https://github.com/StivenCano/testslaravel/blob/master/public/env.png?raw=true)
+
 7. Procedemos a migrar nuestras migraciones, con el comando php artisan migrate.
 8. Nos dirigimos a la carpeta Unit, y entramos al archivo UserTest, y eliminamos el public function predeterminado.
 9. Luego, codificamos el siguiente código:
